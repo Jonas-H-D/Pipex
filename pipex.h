@@ -16,14 +16,22 @@
 # define INFILE 0
 # define OUTFILE 1
 
-char	**ft_split(char *str, char sep);
-char    *ft_path(char *cmd, char **env);
+typedef struct s_struc
+{
+    char        **args;
+    char        *path;
+    int         pipId[2];
+    int         fdin;
+    int         fdout;
+    pid_t       child1;
+    pid_t       child2;
+}   t_struc;
+
+char    *ft_dup(char *str, int i);
+char    **ft_split(char *cmd, char sep);
+int     ft_strcmp(char *str, int len, char *env);
 int     ft_strlen(char *s);
-char	*ft_strchr(char *s, int c);
-char	*ft_strdup(char *s1, int n);
-int	    ft_strncmp(char *s1, char *s2, int n);
-char	*ft_strjoin(char *s1, char *s2);
-int 	ft_strichr(char *s, char c);
-void    ft_exec(char *cmd, char **env);
+char    *ft_join(char *s1, char *s2);
+char    *ft_get_path(char *cmd, char **env);
 
 # endif
