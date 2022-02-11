@@ -12,22 +12,6 @@
 
 #include "pipex.h"
 
-char	*ft_dup(char *str, int i)
-{
-	char	*dest;
-	int		j;
-
-	dest = (char *)malloc(sizeof (char) * i + 1);
-	j = 0;
-	while (j < i)
-	{
-		dest[j] = str[j];
-		j++;
-	}
-	dest[j] = '\0';
-	return (dest);
-}
-
 char	**ft_split(char *cmd, char sep)
 {
 	char	**ret;
@@ -35,14 +19,7 @@ char	**ft_split(char *cmd, char sep)
 	int		j;
 	int		count;
 
-	count = 0;
-	i = 0;
-	while (cmd[i])
-	{
-		if (cmd[i] == sep)
-			count++;
-		i++;
-	}
+	count = ft_linecount(cmd, sep);
 	ret = malloc(sizeof(char *) * (count + 2));
 	if (!ret)
 		return (NULL);
@@ -68,16 +45,6 @@ int	ft_strcmp(char *str, int len, char *env)
 		str++;
 	}
 	return (*env - *str);
-}
-
-int	ft_strlen(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
 }
 
 char	*ft_join(char *s1, char *s2)

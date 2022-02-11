@@ -41,6 +41,7 @@ char	*ft_dup(char *str, int i);
 char	**ft_split(char *cmd, char sep);
 int		ft_strcmp(char *str, int len, char *env);
 int		ft_strlen(char *s);
+int		ft_linecount(char *cmd, char sep);
 char	*ft_join(char *s1, char *s2);
 char	*ft_get_path(t_struc *struc, char *cmd, char **env);
 void	ft_child1(t_struc *struc, char **argv, char **env);
