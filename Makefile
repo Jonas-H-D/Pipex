@@ -1,5 +1,5 @@
 
-SRCS = pipex.c pipex_utils.c
+SRCS = pipex.c pipex_utils.c pipex_tools.c
 
 NAME = pipex
 
@@ -11,10 +11,10 @@ OBJ = $(SRCS:c=o)
 
 FLAGS = -Wall -Wextra -Werror
 
-all: $(NAME) 
-
 $(NAME): $(OBJ)
 		 @$(CC) $(FLAGS) -o $(NAME) $(OBJ)
+
+all: $(NAME) 
 
 %.o: %.c $(SRCS)
 		 @$(CC) $(FLAGS) -c $(SRCS)
